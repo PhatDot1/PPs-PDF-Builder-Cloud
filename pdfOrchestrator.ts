@@ -42,7 +42,9 @@ async function countPending(): Promise<number> {
 async function runIndex() {
   console.log('▶️  Running index.ts…');
   try {
-    const { stdout, stderr } = await exec('ts-node index.ts');
+    const { stdout, stderr } = await exec('node --loader ts-node/esm index.ts'); 
+
+
     if (stdout) console.log(stdout.trim());
     if (stderr) console.error(stderr.trim());
   } catch (err: any) {
